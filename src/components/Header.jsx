@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 
 const Header = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const color = useContext(ThemeContext);
 
     const handleClick = () => {
         setDarkMode(!darkMode);
@@ -11,7 +13,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <a href="#default" className="logo">React Hooks</a>
+            <a style={{ color }} href="#default" className="logo">React Hooks</a>
             <div className="header-right">
                 <label className="switch">
                     <input onClick={handleClick} type="checkbox" />
